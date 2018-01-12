@@ -40,11 +40,11 @@ class ArticlesController < ApplicationController
 	end
 
 	private def find_article
-		@article = Article.find(params[:id])
-	end
+	@article = Article.find(params[:id])
+end
 
-	private def article_params
-	params.require(:article).permit(:title, :text)
+private def article_params
+params.require(:article).permit(:title, :text)
 end
 end
 
