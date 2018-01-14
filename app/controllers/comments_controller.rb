@@ -2,8 +2,15 @@ class CommentsController < ApplicationController
   before_action :find_article, only: [:create, :destroy]
 
   def create
-    @comment = @article.comments.create(comment_params)
-    redirect_to article_path(@article)
+    @comment = current_user.comments.build(comment_params)
+    @comment.article = @article 
+    if @article.save
+      @comment.save
+      flash[:success] = "Comment created!"
+      redirect_to article_path(@article)
+    else
+      redirect_to article_path(@article)    
+    end   
   end
 
   def destroy
