@@ -7,12 +7,14 @@
 	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 	<%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 </head>
-
 <body>
-	<p class="notice"><%= notice %></p>
-	<p class="alert"><%= alert %></p>
-	<%= link_to 'Sign up',  new_user_registration_path %>
-	<%= link_to 'Sign in',  new_user_session_path %>
-	<%= yield %>
+	<%= render 'layouts/header' %>
+	<div class="container-fluid">
+		<p class="notice"><%= notice %></p>
+		<p class="alert"><%= alert %></p>
+	<!--	<%= link_to 'Sign up',  new_user_registration_path %>
+		<%= link_to 'Sign in',  new_user_session_path %> -->
+		<%= yield %>
+	</div>	
 </body>
 </html>

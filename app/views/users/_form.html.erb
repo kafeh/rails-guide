@@ -1,0 +1,10 @@
+<%= form_with model: @user do |f|%>
+<p>
+	<%= f.label :Profile_photo %><br>
+	<%= f.file_field :image %>	
+</p>
+<br>
+<p>
+	<%= f.submit "Update Profile", class: "btn btn-primary" %>
+</p>
+<% end %>
