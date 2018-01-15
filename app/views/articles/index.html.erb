@@ -21,4 +21,7 @@
 		<% end %>
 	</tr>
 <% end %>
-</table>
+</table><br><br>
+<%= will_paginate(@articles, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer, 
+class: 'pagination-sm') %>
+
