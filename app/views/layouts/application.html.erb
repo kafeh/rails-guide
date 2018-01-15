@@ -8,7 +8,9 @@
 	<%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 </head>
 <body>
-	<%= render 'layouts/header' %>
+	<% if user_signed_in? %>
+		<%= render 'layouts/header' %>
+	<% end %>
 	<div class="container-fluid">
 		<p class="notice"><%= notice %></p>
 		<p class="alert"><%= alert %></p>
