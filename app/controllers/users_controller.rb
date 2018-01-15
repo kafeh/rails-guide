@@ -12,7 +12,7 @@ class UsersController < ApplicationController
 
 	def update
 		if @user.update(user_params)
-				redirect_to @article
+				redirect_to @user
 			else
 				render 'edit'	
 		end		
@@ -23,7 +23,7 @@ class UsersController < ApplicationController
 	end
 
 	private def user_params
-	params.require(:user).permit(:profile)
+	params.require(:user).permit(:avatar)
 	end
 
 	private def check_autorization
