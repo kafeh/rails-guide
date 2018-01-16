@@ -8,7 +8,7 @@
 		<th>Title</th>
 		<th>Text</th>
 		<th>Category</th>
-		<th>User</th>
+		<!-- <th>User</th> -->
 		<th>Comments</th>
 	</tr>
 	<% @articles.each do |article| %>
@@ -18,13 +18,13 @@
 		<% if !article.article_category.nil? %>
 			<td><%= article.article_category.name %> </td>
 		<% end %>
-		<td><%= article.user.email %> </td>
+		<!-- <td><%= article.user.email %> </td> -->
 		<td><%= pluralize(article.comments_count, 'comment') %> </td>
 		<td><%= link_to 'Show', article_path(article) %></td>
 		<% if article.user == current_user %>
-		<td><%= link_to 'Edit', edit_article_path(article) %></td>
-		<td><%= link_to 'Destroy', article_path(article), method: :delete, 
-					data: { confirm: "Are you sure?" } %></td>
+			<td><%= link_to 'Edit', edit_article_path(article) %></td>
+			<td><%= link_to 'Destroy', article_path(article), method: :delete, 
+						data: { confirm: "Are you sure?" } %></td>
 		<% end %>
 	</tr>
 <% end %>

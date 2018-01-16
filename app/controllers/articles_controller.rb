@@ -42,11 +42,11 @@ class ArticlesController < ApplicationController
 	end
 
 	private def find_article
-	@article = Article.find(params[:id])
+	@article = Article.friendly.find(params[:id])
 	end
 
 	private def article_params
-	params.require(:article).permit(:title, :text, :article_category_id)
+	params.require(:article).permit(:title, :text, :article_category_id, :slug)
 	end
 end
 
