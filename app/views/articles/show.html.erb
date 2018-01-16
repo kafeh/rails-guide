@@ -1,16 +1,21 @@
-<h4><strong><%= @article.title %></strong></h4>
-<p><strong><%= @article.text %></strong></p>
-<% if !@article.article_category.nil? %>
+<div class="container">
+	<h3><strong><%= @article.title %></strong></h3>
+	<p><strong><%= @article.text %></strong></p>
+	<% if !@article.article_category.nil? %>
 	<p><i><%= @article.article_category.name %></p></i>
-<% end %>
-<br>
-<h3><strong>Comments</strong></h3>
-<%= render @comments %>
-<%= will_paginate(@comments, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer, 
-class: 'pagination-sm') %>
-<h5>Add a comment:</h5>
-<%= render 'comments/form' %><br>
-<%= link_to "Back", articles_path %>
-<%= link_to "Edit", edit_article_path(@article) %>
-
+	<% end %>
+	<br>
+	<h4>Comments</h4>
+	<%= render @comments %>
+	<%= will_paginate(@comments, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer, 
+		class: 'pagination-sm') %>
+	<br>
+	<div class="col-6">
+		<h5>Add a comment:</h5>
+		<%= render 'comments/form' %>
+	</div>
+	<br>
+	<%= link_to "Back", articles_path %>
+	<%= link_to "Edit", edit_article_path(@article) %>
+</div>
 

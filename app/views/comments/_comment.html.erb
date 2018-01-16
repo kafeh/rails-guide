@@ -1,19 +1,13 @@
-<p>
-	<strong>Commenter:</strong>
-	<%= comment.commenter %>
-</p>
-<p>
-	<strong>Email:</strong>
-	<%= comment.user.email %>
-</p>
-<p>
-	<strong>Comment:</strong>
-	<%= comment.body %>
-</p>
-<% if comment.user == current_user || current_user == comment.article.user %>
-<p>
-	<%= link_to 'Destroy Comment', [comment.article, comment], method: :delete, 
-	data: { confirm: 'Are you sure?' } %>
-</p>
-<% end %>
+<table class="table">
+	<tr>
+		<td><strong><%= comment.commenter %></strong>  <i><%= comment.user.email %></i></td>
+		<td><i>"<%= comment.body %>"</i></td>
+		<td>
+		<% if comment.user == current_user || current_user == comment.article.user %>
+			<%= link_to 'Destroy Comment', [comment.article, comment], method: :delete, 
+			data: { confirm: 'Are you sure?' } %>
+		<% end %>
+		</td>
+	</tr>
+</table>
 

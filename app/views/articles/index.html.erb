@@ -1,34 +1,38 @@
-<h1>Listing Articles</h1>
-<%= link_to "New article", new_article_path %>
-<%= link_to "Show article categories", article_categories_path %>
-<br>
-<br>
-<table>
-	<tr>
-		<th>Title</th>
-		<th>Text</th>
-		<th>Category</th>
-		<!-- <th>User</th> -->
-		<th>Comments</th>
-	</tr>
-	<% @articles.each do |article| %>
-	<tr>
-		<td><%= article.title %> </td>
-		<td><%= article.text %> </td>
-		<% if !article.article_category.nil? %>
-			<td><%= article.article_category.name %> </td>
+<div class="container">
+	<h1>Listing Articles</h1>
+	<%= link_to "New article", new_article_path %>
+	<%= link_to "Show article categories", article_categories_path %>
+	<br>
+	<br>
+	<table class="table">
+		<tr>
+			<th>Title</th>
+			<th>Text</th>
+			<th>Category</th>
+			<th>User</th>			
+			<th>Comments</th>
+			<th></th>
+		</tr>
+		<% @articles.each do |article| %>
+		<tr>
+			<td><%= article.title %></td>
+			<td><%= article.text %></td>
+			<% if !article.article_category.nil? %>
+			<td><%= article.article_category.name %></td>
+			<% end %>
+			<td><%= article.user.email %></td>
+			<td><%= pluralize(article.comments_count, 'comment') %></td>
+			<td><%= link_to 'Show', article_path(article) %>
+			<% if article.user == current_user %>
+			<%= link_to 'Edit', edit_article_path(article) %>
+			<%= link_to 'Destroy', article_path(article), method: :delete, 
+			data: { confirm: "Are you sure?" } %>
+			<% end %>
+			</td>
+		</tr>
 		<% end %>
-		<!-- <td><%= article.user.email %> </td> -->
-		<td><%= pluralize(article.comments_count, 'comment') %> </td>
-		<td><%= link_to 'Show', article_path(article) %></td>
-		<% if article.user == current_user %>
-			<td><%= link_to 'Edit', edit_article_path(article) %></td>
-			<td><%= link_to 'Destroy', article_path(article), method: :delete, 
-						data: { confirm: "Are you sure?" } %></td>
-		<% end %>
-	</tr>
-<% end %>
-</table><br><br>
-<%= will_paginate(@articles, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer, 
-class: 'pagination-sm') %>
-
+	</table>
+	<br>
+	<%= will_paginate(@articles, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer, 
+	class: 'pagination-sm') %>	
+</div>
