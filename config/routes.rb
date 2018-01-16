@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  
   devise_for :users
   	
   get 'welcome/index'
@@ -10,4 +11,7 @@ Rails.application.routes.draw do
   resources :articles do
   	resources :comments
   end
+
+  resources :article_categories
+
 end

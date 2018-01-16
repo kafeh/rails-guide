@@ -7,6 +7,7 @@ class ArticlesController < ApplicationController
 	end
 
 	def show
+		#Además de tener la variable @article es necesario almacenar los comentarios en variables para paginar
 		@comments = @article.comments.paginate(page: params[:page])
 	end
 	
