@@ -3,5 +3,6 @@ class Article < ApplicationRecord
 	belongs_to :user
 	belongs_to :article_category
 	has_many :comments, dependent: :destroy
+	accepts_nested_attributes_for :article_category
 	self.per_page = 5
 end

@@ -23,6 +23,10 @@
 	<%= f.text_area :text %>	
 </p>
 <p>
+	<%= f.collection_select(:article_category_id, ArticleCategory.all, :id, :name, 
+	{:prompt => 'Select category'}) %>
+</p>
+<p>
 	<%= f.submit class: "btn btn-primary" %>
 </p>
 <% end %>
