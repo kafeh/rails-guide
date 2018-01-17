@@ -1,7 +1,14 @@
-<h2>My Profile</h2>
-<!-- <%= image_tag @user.avatar.thumb.url if @user.avatar? %> -->
-<%= avatar_for(@user) %><br><br>
-<p><strong>ID: </strong><%= current_user.id %></p>
-<p><strong>Email: </strong><%= current_user.email %></p>
-<%= link_to "Edit profile", edit_user_path %><br><br>
-
+<div class="container" align="center">
+	<h2>My Profile</h2>
+	<!-- <%= image_tag @user.avatar.thumb.url if @user.avatar? %> -->
+	<%= avatar_for(@user) %>
+	<div class="col-sm-4" align="left">
+		<br>
+		<br>
+		<p><strong>ID: </strong><%= current_user.id %></p>
+		<p><strong>Email: </strong><%= current_user.email %></p>
+		<%= link_to "Edit profile", edit_user_path %>
+		<br>
+		<br>
+	</div>
+</div>

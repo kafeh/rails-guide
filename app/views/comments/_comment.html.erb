@@ -4,7 +4,7 @@
 		<td><i>"<%= comment.body %>"</i></td>
 		<td>
 		<% if comment.user == current_user || current_user == comment.article.user %>
-			<%= link_to 'Destroy Comment', [comment.article, comment], method: :delete, 
+			<%= link_to 'Destroy', [comment.article, comment], method: :delete, 
 			data: { confirm: 'Are you sure?' } %>
 		<% end %>
 		</td>

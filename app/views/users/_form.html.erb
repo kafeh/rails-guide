@@ -1,10 +1,10 @@
 <%= form_with model: @user, multipart: true do |f|%>
 <p>
 	<%= f.label :Profile_photo %><br>
-	<%= f.file_field :avatar %>	
+	<%= f.file_field :avatar, class: "form-control" %>	
 </p>
 <br>
 <p>
-	<%= f.submit "Update Profile", class: "btn btn-primary" %>
+	<%= f.submit "Update Profile", class: "btn btn-primary btn-lg btn-block" %>
 </p>
 <% end %>
