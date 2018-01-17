@@ -3,7 +3,6 @@ class UsersController < ApplicationController
 	before_action :check_autorization, only: [:edit, :update]
 	before_action :find_user
 
-
 	def show
 	end
 
@@ -31,5 +30,4 @@ class UsersController < ApplicationController
 			redirect_to root_url			
 		end
 	end
-
 end
